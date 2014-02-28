@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+ 
+<body>
+	<noscript>No tens activat el javascript!!!!</noscript>
+	<script type="text/javascript">
+		var data=new Date();
+		
+		function tornarDataCompleta(data){
+			var any=data.getFullYear(); 
+			var mes=data.getMonth(); if (mes < 10){	mes="0"+mes;	}
+			var dia=data.getDate(); if (dia < 10){	dia="0"+dia;	}
+			var hora=data.getHours(); if (hora < 10){	hora="0"+hora;	}
+			var minut=data.getMinutes(); if (minut < 10){	minut="0"+minut;	}
+			var segon=data.getSeconds(); if (segon < 10){	segon="0"+segon;	}
+			var diaSet=data.getDay();
+			var diaSt=null;
+			if (isNaN(any)==false){
+				switch(diaSet){
+					case 0: diaSt="diumenge"; break;
+					case 1: diaSt="dilluns"; break;
+					case 2: diaSt="dimarts"; break;
+					case 3: diaSt="dimecres"; break;
+					case 4: diaSt="dijous"; break;
+					case 5: diaSt="divendres"; break;
+					case 6: diaSt="dissabte"; break;
+					
+				}
+				document.write(diaSt);
+				var mesSt=null;
+				switch(mes){
+					case '00': mesSt="Gener"; break;
+					case '01': mesSt="Febrer"; break;
+					case '02': mesSt="MarÃ§"; break;
+					case '03': mesSt="Abril"; break;
+					case '04': mesSt="Maig"; break;
+					case '05': mesSt="Juny"; break;
+					case '06': mesSt="Juliol"; break;
+					case '07': mesSt="Agost"; break;
+					case '08': mesSt="Septembre"; break;
+					case '09': mesSt="Octubre"; break;
+					case 10: mesSt="Novembre"; break;
+					case 11: mesSt="Desembre"; break;
+					
+				}
+				dataCompleta=[any,mes,dia,hora,minut,segon,diaSt,mesSt];
+				document.write("<"+dataCompleta[6]+"> "+dataCompleta[2]+"/"+dataCompleta[1]+"/"+dataCompleta[0]+" "+dataCompleta[3]+":"+dataCompleta[4]+":"+dataCompleta[5]+" ("+dataCompleta[7]+")<br/>");
+			} else {
+				document.write("Data mal introduida<br/>");
+			}
+		}
+		tornarDataCompleta(data);
+		
+		var data2=new Date(2013,6,3,15,20,0);
+		tornarDataCompleta(data2);
+		
+		var data3=new Date(2013,1,35,15,20,0);
+		tornarDataCompleta(data3);
+
+		var data4=new Date(2013,1,29,'aa',20,0);
+		tornarDataCompleta(data4);
+
+		var data5=new Date(null);
+		tornarDataCompleta(data5);
+		
+		tornarDataCompleta();
+	</script>
+	
+</body>
+</html>
